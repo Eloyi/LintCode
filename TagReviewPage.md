@@ -946,7 +946,7 @@ O(n^2) is not too hard to think of. How about O(n)?
  
  
  
-## Math (29)
+## Math (30)
 **0. [Fraction to Recurring Decimal.java](https://github.com/awangdev/LintCode/blob/master/Java/Fraction%20to%20Recurring%20Decimal.java)**      Level: Medium      Tags: [Hash Table, Math]
       
 
@@ -1171,7 +1171,37 @@ Linked List 没有天然size.
 
 ---
 
-**15. [Reverse Integer.java](https://github.com/awangdev/LintCode/blob/master/Java/Reverse%20Integer.java)**      Level: Easy      Tags: [Math]
+**15. [Linked List Cycle II.java](https://github.com/awangdev/LintCode/blob/master/Java/Linked%20List%20Cycle%20II.java)**      Level: Medium      Tags: [Linked List, Math, Two Pointers]
+      
+
+LinkedList 里面有 cycle, 找到cycle的起始点(第一个重复出现的element).
+
+#### Slow, fast Pointer
+- 快慢指针, O(1)space.
+- 1. 确认有cycle后 2. 数学问题:找到开头.
+- 当head == slow.next时候， head就是cycle starting point.
+- 也就是说，当slow 移动到了那个回溯点，slow.next那个点就刚好是head的那个点...
+
+#### 证明
+- 1. 假设慢指针走t步, 快指针走快一倍, 也就是2t.
+- 2. 我们假设cycle的长度是Y, 而进入cycle之前的长度为X.
+- 3. 假设慢指针走了m圈cycle, 而快指针走了n圈cycle之后, 两个pointer相遇.
+- 4. 最终在Y cycle里面的K点相遇, 也就是两个指针都在这最后一圈里面走了K 步.
+- 那么:
+- t = X + mY + K
+- 2t = X + nY + K
+- 整合公式: X + K = (n - 2m)Y
+- 这里的m和n不过是整数的跑圈数, 也就是说X和K加在一起, 总归是结束cycle. X 和 K 互补
+- 结论: 当slow/fast 指针在K点相遇后, 再走X步, 就到了cycle的起点, 也就是题目要求的起点.
+
+#### Hash Table, O(n) space
+
+
+
+
+---
+
+**16. [Reverse Integer.java](https://github.com/awangdev/LintCode/blob/master/Java/Reverse%20Integer.java)**      Level: Easy      Tags: [Math]
       
 
 #### 方法1
@@ -1187,7 +1217,7 @@ Space O(n), time O(n)
 
 ---
 
-**16. [Sqrt(x).java](https://github.com/awangdev/LintCode/blob/master/Java/Sqrt(x).java)**      Level: Easy      Tags: [Binary Search, Math]
+**17. [Sqrt(x).java](https://github.com/awangdev/LintCode/blob/master/Java/Sqrt(x).java)**      Level: Easy      Tags: [Binary Search, Math]
       
 
 #### s- qrt(int x)
@@ -1204,7 +1234,7 @@ Space O(n), time O(n)
 
 ---
 
-**17. [Continuous Subarray Sum.java](https://github.com/awangdev/LintCode/blob/master/Java/Continuous%20Subarray%20Sum.java)**      Level: Medium      Tags: [Coordinate DP, DP, Math]
+**18. [Continuous Subarray Sum.java](https://github.com/awangdev/LintCode/blob/master/Java/Continuous%20Subarray%20Sum.java)**      Level: Medium      Tags: [Coordinate DP, DP, Math]
       
 
 给一个非负数的数列和数字k(可正负, 可为0). 找到连续子序列(长度超过2), 使得这个subarray的sum 是 k的倍数. 问: 是否可能?
@@ -1223,7 +1253,7 @@ Space O(n), time O(n)
 
 ---
 
-**18. [Count Primes.java](https://github.com/awangdev/LintCode/blob/master/Java/Count%20Primes.java)**      Level: Easy      Tags: [Hash Table, Math]
+**19. [Count Primes.java](https://github.com/awangdev/LintCode/blob/master/Java/Count%20Primes.java)**      Level: Easy      Tags: [Hash Table, Math]
       
 
 计数: 所有小于n的prime number.
@@ -1243,7 +1273,7 @@ Space O(n), time O(n)
 
 ---
 
-**19. [Excel Sheet Column Number.java](https://github.com/awangdev/LintCode/blob/master/Java/Excel%20Sheet%20Column%20Number.java)**      Level: Easy      Tags: [Math]
+**20. [Excel Sheet Column Number.java](https://github.com/awangdev/LintCode/blob/master/Java/Excel%20Sheet%20Column%20Number.java)**      Level: Easy      Tags: [Math]
       
 
 #### Math
@@ -1256,7 +1286,7 @@ Space O(n), time O(n)
 
 ---
 
-**20. [Excel Sheet Column Title.java](https://github.com/awangdev/LintCode/blob/master/Java/Excel%20Sheet%20Column%20Title.java)**      Level: Easy      Tags: [Math]
+**21. [Excel Sheet Column Title.java](https://github.com/awangdev/LintCode/blob/master/Java/Excel%20Sheet%20Column%20Title.java)**      Level: Easy      Tags: [Math]
       
 
 #### 基本换算
@@ -1270,7 +1300,7 @@ Space O(n), time O(n)
 
 ---
 
-**21. [Integer to English Words.java](https://github.com/awangdev/LintCode/blob/master/Java/Integer%20to%20English%20Words.java)**      Level: Hard      Tags: [Math, String]
+**22. [Integer to English Words.java](https://github.com/awangdev/LintCode/blob/master/Java/Integer%20to%20English%20Words.java)**      Level: Hard      Tags: [Math, String]
       
 
 给一个小于 Integer.MAX_VALUE (2^31 - 1) 的数字, 转换成英语. (不需要加 'and')
@@ -1293,7 +1323,7 @@ Space O(n), time O(n)
 
 ---
 
-**22. [Fibonacci.java](https://github.com/awangdev/LintCode/blob/master/Java/Fibonacci.java)**      Level: Easy      Tags: [DP, Math, Memoization]
+**23. [Fibonacci.java](https://github.com/awangdev/LintCode/blob/master/Java/Fibonacci.java)**      Level: Easy      Tags: [DP, Math, Memoization]
       
 
 #### Memoization
@@ -1310,7 +1340,7 @@ Space O(n), time O(n)
 
 ---
 
-**23. [Missing Number.java](https://github.com/awangdev/LintCode/blob/master/Java/Missing%20Number.java)**      Level: Easy      Tags: [Array, Bit Manipulation, Math]
+**24. [Missing Number.java](https://github.com/awangdev/LintCode/blob/master/Java/Missing%20Number.java)**      Level: Easy      Tags: [Array, Bit Manipulation, Math]
       
 
 给一串unique数字, 数字取自 [0 ~ n], 无序, 找第一个skipped的数字.
@@ -1338,7 +1368,7 @@ Space O(n), time O(n)
 
 ---
 
-**24. [Basic Calculator.java](https://github.com/awangdev/LintCode/blob/master/Java/Basic%20Calculator.java)**      Level: Hard      Tags: [Binary Tree, Expression Tree, Math, Minimum Binary Tree, Stack]
+**25. [Basic Calculator.java](https://github.com/awangdev/LintCode/blob/master/Java/Basic%20Calculator.java)**      Level: Hard      Tags: [Binary Tree, Expression Tree, Math, Minimum Binary Tree, Stack]
       
 
 给一个expression String, 要evaluate这个expression的值.
@@ -1361,7 +1391,7 @@ Expression string 里面包括 +, -, 整数, 开合括号, 还有space.
 
 ---
 
-**25. [Ugly Number.java](https://github.com/awangdev/LintCode/blob/master/Java/Ugly%20Number.java)**      Level: Medium      Tags: [Math]
+**26. [Ugly Number.java](https://github.com/awangdev/LintCode/blob/master/Java/Ugly%20Number.java)**      Level: Medium      Tags: [Math]
       
 
 LeetCode: 判断数字是否是ugly number. (definition: factor only have 2, 3, 5)
@@ -1381,7 +1411,7 @@ LintCode: 找kth ugly number, 应该与 Ugly Number II是一样的
 
 ---
 
-**26. [Strobogrammatic Number II.java](https://github.com/awangdev/LintCode/blob/master/Java/Strobogrammatic%20Number%20II.java)**      Level: Medium      Tags: [DFS, Math, Sequence DFS]
+**27. [Strobogrammatic Number II.java](https://github.com/awangdev/LintCode/blob/master/Java/Strobogrammatic%20Number%20II.java)**      Level: Medium      Tags: [DFS, Math, Sequence DFS]
       
 
 TODO: 
@@ -1403,7 +1433,7 @@ TODO:
 
 ---
 
-**27. [Max Points on a Line.java](https://github.com/awangdev/LintCode/blob/master/Java/Max%20Points%20on%20a%20Line.java)**      Level: Hard      Tags: [Array, Geometry, Hash Table, Math]
+**28. [Max Points on a Line.java](https://github.com/awangdev/LintCode/blob/master/Java/Max%20Points%20on%20a%20Line.java)**      Level: Hard      Tags: [Array, Geometry, Hash Table, Math]
       
 
 给list of (x,y) coordinates. Determine  # of points on the same line
@@ -1423,7 +1453,7 @@ TODO:
 
 ---
 
-**28. [Number of Digit One.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Digit%20One.java)**      Level: Hard      Tags: [Math]
+**29. [Number of Digit One.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Digit%20One.java)**      Level: Hard      Tags: [Math]
       
 
 Pure math problem, not quite representative
@@ -6639,7 +6669,7 @@ Space O(n): dp[], sum[]
  
  
  
-## Hash Table (43)
+## Hash Table (44)
 **0. [Fraction to Recurring Decimal.java](https://github.com/awangdev/LintCode/blob/master/Java/Fraction%20to%20Recurring%20Decimal.java)**      Level: Medium      Tags: [Hash Table, Math]
       
 
@@ -7444,6 +7474,25 @@ deep copy linked list. linked list 上有random pointer to other nodes.
 - # of papers (sum of bucket[n]...bucket[0]) has more than h cidations 
 - 这里运用到了bucket sort的思想, 但是并不是sorting, 而h-index的定义运用的很巧妙.
 - Read more about actual bucket sort: https://en.wikipedia.org/wiki/Bucket_sort
+
+
+
+---
+
+**43. [Rearrange String k Distance Apart.java](https://github.com/awangdev/LintCode/blob/master/Java/Rearrange%20String%20k%20Distance%20Apart.java)**      Level: Hard      Tags: [Greedy, Hash Table, Heap]
+      
+
+给一个string, 全是lowercase letter, 要求重新排列: 然后每个unique的character要有k distance apart.
+
+跟Task Scheduler有点像, 只不过Task那道题里面还可以用其他方法求count, 这道题要求出排列结果
+
+#### PriorityQueue + HashTable
+- PriorityQueue排序+分布排列的一个经典用法.
+- Count frequency and store in pq.
+- Consume element of pq for k rounds, each time pick one element from queue.
+- Exception: if k still has content but queue is consumed: cannot complete valid string, return "";
+- space, O(n) extra space in sb, O(26) constant space with pq.
+- time: O(n) to add all items
 
 
 
@@ -9336,7 +9385,7 @@ BST里面有2个node misplace, 要归为. 要求: O(1) extra space
  
  
  
-## Sort (20)
+## Sort (21)
 **0. [The Smallest Difference.java](https://github.com/awangdev/LintCode/blob/master/Java/The%20Smallest%20Difference.java)**      Level: Medium      Tags: [Array, Sort, Two Pointers]
       
 
@@ -9389,7 +9438,7 @@ HashMap
 
 ---
 
-**4. [Meeting Rooms.java](https://github.com/awangdev/LintCode/blob/master/Java/Meeting%20Rooms.java)**      Level: Easy      Tags: [Sort, Sweep Line]
+**4. [Meeting Rooms.java](https://github.com/awangdev/LintCode/blob/master/Java/Meeting%20Rooms.java)**      Level: Easy      Tags: [PriorityQueue, Sort, Sweep Line]
       
 
 - 注意接头点要考虑所有开会结会的情况，不要恰巧漏掉相接的点
@@ -9404,11 +9453,9 @@ HashMap
 
 
 
-
-
 ---
 
-**5. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, Sort, Sweep Line]
+**5. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, PriorityQueue, Sort, Sweep Line]
       
 
 #### Sweep Line
@@ -9724,6 +9771,40 @@ Details 参见: https://github.com/awangdev/LintCode/blob/master/Java/Sort%20Col
 - min所在的两个节点的index, 就是result candidate: 这两个index可能再原nums里面相差很远
 - time O(nlogn), sort
 - space: O(n)
+
+
+
+---
+
+**20. [Exam Room.java](https://github.com/awangdev/LintCode/blob/master/Java/Exam%20Room.java)**      Level: Medium      Tags: [PriorityQueue, Sort]
+      
+
+#### PriorityQueue
+- Use priority queue to sort by customized class interval{int dist; int x, y;}. 
+- Sort by larger distance and then sort by start index
+- seat(): pq.poll() to find interval of largest distance. Split and add new intervals back to queue.
+- leave(x): one seat will be in 2 intervals: remove both from pq, and merge to a new interval.
+- 主方程写出来其实很好写, 就是 split + add interval, 然后 find + delete interval 而已. 最难的是构建data structure
+- seat(): O(logn), leave(): O(n)
+
+##### Trick: 构建虚拟 boundary
+- 如果是开头的seat, 或者是结尾的seat, 比较难handle: 一开始坐在seat=0的时候, 没有interval啊!
+- Trick就是, 我们自己定义个虚拟的座位 `seat=-1`, `seat=N`
+- 一开始有一个 interval[-1, N] 然后就建立了boundary.
+- 从此以后, 每次split成小interval的时候:
+- 遇到 `interval[-1, y]`, distance就是 `(y - 0)`
+- 遇到 `interval[x, N]`, distance就是 `(N - 1 - x)`
+- 当然正常的interval dist 就是 `(y - x) / 2`
+
+##### distance 中间点
+- Interval.dist 我们其实做的是 distance的中间点 `(y - x) / 2`
+- 这里的dist是 `距离两边的距离` 而不是 x, y 之间的距离. 这里要特别注意.
+
+#### TreeSet
+- https://leetcode.com/problems/exam-room/discuss/139885/Java-Solution-based-on-treeset/153588
+
+#### Map
+- TODO, not sure.
 
 
 
@@ -10637,8 +10718,43 @@ reset() 给出最初的nums
  
  
  
-## PriorityQueue (6)
-**0. [Top K Frequent Words.java](https://github.com/awangdev/LintCode/blob/master/Java/Top%20K%20Frequent%20Words.java)**      Level: Medium      Tags: [Hash Table, Heap, PriorityQueue, Trie]
+## PriorityQueue (10)
+**0. [Meeting Rooms.java](https://github.com/awangdev/LintCode/blob/master/Java/Meeting%20Rooms.java)**      Level: Easy      Tags: [PriorityQueue, Sort, Sweep Line]
+      
+
+- 注意接头点要考虑所有开会结会的情况，不要恰巧漏掉相接的点
+- 开会的是超人。瞬间移动接上下一个会议
+
+#### 方法1:
+找是否有overlap. priorityQueue 按照start time排序好以后, 比较current和peek: current.end > peek.start?
+
+#### 方法2: Sweep line
+- class Point{pos, flag}, PriorityQueue排序。计算count
+- 跟 Number of Airplanes in the Sky 是一个类型的题目
+
+
+
+---
+
+**1. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, PriorityQueue, Sort, Sweep Line]
+      
+
+#### Sweep Line
+- 把Interval拆分成数轴上的Point 
+- 起飞mark 1   
+- 降落mark -1     
+- 用PriorityQueue排序， loop through queue, 计算(起飞+降落)值可能有的max。
+
+#### 注意
+- 同时起飞和降落，就是 1 - 1 = 0. 所以在while loop里面有第二个while loop，    
+- 当坐标x重合时，在这里做完所有x点的加减，然后再比较 max。     
+- 这避免了错误多count，或者少count
+
+
+
+---
+
+**2. [Top K Frequent Words.java](https://github.com/awangdev/LintCode/blob/master/Java/Top%20K%20Frequent%20Words.java)**      Level: Medium      Tags: [Hash Table, Heap, PriorityQueue, Trie]
       
 
 #### PriorityQueue
@@ -10661,7 +10777,7 @@ reset() 给出最初的nums
 
 ---
 
-**1. [Merge k Sorted Lists.java](https://github.com/awangdev/LintCode/blob/master/Java/Merge%20k%20Sorted%20Lists.java)**      Level: Medium      Tags: [Divide and Conquer, Heap, Linked List, PriorityQueue]
+**3. [Merge k Sorted Lists.java](https://github.com/awangdev/LintCode/blob/master/Java/Merge%20k%20Sorted%20Lists.java)**      Level: Medium      Tags: [Divide and Conquer, Heap, Linked List, PriorityQueue]
       
 
 #### Priorityqueue
@@ -10691,7 +10807,7 @@ reset() 给出最初的nums
 
 ---
 
-**2. [Merge k Sorted Arrays.java](https://github.com/awangdev/LintCode/blob/master/Java/Merge%20k%20Sorted%20Arrays.java)**      Level: Medium      Tags: [Heap, PriorityQueue]
+**4. [Merge k Sorted Arrays.java](https://github.com/awangdev/LintCode/blob/master/Java/Merge%20k%20Sorted%20Arrays.java)**      Level: Medium      Tags: [Heap, PriorityQueue]
       
 
 #### Priority Queue
@@ -10703,7 +10819,7 @@ reset() 给出最初的nums
 
 ---
 
-**3. [Top K Frequent Elements.java](https://github.com/awangdev/LintCode/blob/master/Java/Top%20K%20Frequent%20Elements.java)**      Level: Medium      Tags: [Hash Table, Heap, PriorityQueue]
+**5. [Top K Frequent Elements.java](https://github.com/awangdev/LintCode/blob/master/Java/Top%20K%20Frequent%20Elements.java)**      Level: Medium      Tags: [Hash Table, Heap, PriorityQueue]
       
 
 给一串数字, 找到top k frequent element, 并且time complexity 要比nLogN要好
@@ -10720,7 +10836,7 @@ reset() 给出最初的nums
 
 ---
 
-**4. [Insert Interval.java](https://github.com/awangdev/LintCode/blob/master/Java/Insert%20Interval.java)**      Level: Hard      Tags: [Array, PriorityQueue, Sort]
+**6. [Insert Interval.java](https://github.com/awangdev/LintCode/blob/master/Java/Insert%20Interval.java)**      Level: Hard      Tags: [Array, PriorityQueue, Sort]
       
 
 #### Sweep Line
@@ -10746,7 +10862,7 @@ reset() 给出最初的nums
 
 ---
 
-**5. [Merge Intervals.java](https://github.com/awangdev/LintCode/blob/master/Java/Merge%20Intervals.java)**      Level: Medium      Tags: [Array, PriorityQueue, Sort, Sweep Line]
+**7. [Merge Intervals.java](https://github.com/awangdev/LintCode/blob/master/Java/Merge%20Intervals.java)**      Level: Medium      Tags: [Array, PriorityQueue, Sort, Sweep Line]
       
 
 给一串int[Interval] (unsorted), 把所以Interval merge起来.
@@ -10777,13 +10893,76 @@ reset() 给出最初的nums
 
 ---
 
+**8. [Task Scheduler.java](https://github.com/awangdev/LintCode/blob/master/Java/Task%20Scheduler.java)**      Level: Medium      Tags: [Array, Enumeration, Greedy, PriorityQueue, Queue]
+      
+
+#### Array, count frequency, enumerate
+- Enumerate to understand: 1. we can module the tasks in module/section; 2. Only need sum the intervals/slots, not return actual layout
+- Perfect condition, all letters appear identical # times: just line them up separate in order.
+- Real case: task appears different times
+- 1. Place maxCount task as header followed with n slots: define (maxCount-1) sections
+- 2. For tasks with less # than maxCount# can fill the (maxCount-1) sections; what about the tail section?
+- 3. Any task with same maxTask#, of if prior sections all filled, will fill the tail section
+- To count overall slots/intervals, come up with this equation:
+- 1. Fixed sections: `(maxCount - 1) * (n + 1)`
+- 2. Plus all repeating maxCount tasks: calculate by couting identical maxCount of them
+- 3. Exception: if the first (max - 1) sections are all filled completely, and we still have extra task (ex: when n is not large enough), then just return tasks.length
+- time O(1), space O(1)
+
+#### PriorityQueue
+- 正面去做: 
+- summerize 每个task出现的次数, 然后qp sort Task object, count 大的靠前
+- 起始每个section: k slots = n + 1
+- 目标是穷尽 k, 或者 穷尽 pq (poll k times, but will save it back to queue if Task # > 0)
+- 如果qp 真的穷尽, break, return count
+- 不然, count + remain of k
+- extra space O(x), time O(n) + constant time O(xlogx), where x = 26
+
+
+
+---
+
+**9. [Exam Room.java](https://github.com/awangdev/LintCode/blob/master/Java/Exam%20Room.java)**      Level: Medium      Tags: [PriorityQueue, Sort]
+      
+
+#### PriorityQueue
+- Use priority queue to sort by customized class interval{int dist; int x, y;}. 
+- Sort by larger distance and then sort by start index
+- seat(): pq.poll() to find interval of largest distance. Split and add new intervals back to queue.
+- leave(x): one seat will be in 2 intervals: remove both from pq, and merge to a new interval.
+- 主方程写出来其实很好写, 就是 split + add interval, 然后 find + delete interval 而已. 最难的是构建data structure
+- seat(): O(logn), leave(): O(n)
+
+##### Trick: 构建虚拟 boundary
+- 如果是开头的seat, 或者是结尾的seat, 比较难handle: 一开始坐在seat=0的时候, 没有interval啊!
+- Trick就是, 我们自己定义个虚拟的座位 `seat=-1`, `seat=N`
+- 一开始有一个 interval[-1, N] 然后就建立了boundary.
+- 从此以后, 每次split成小interval的时候:
+- 遇到 `interval[-1, y]`, distance就是 `(y - 0)`
+- 遇到 `interval[x, N]`, distance就是 `(N - 1 - x)`
+- 当然正常的interval dist 就是 `(y - x) / 2`
+
+##### distance 中间点
+- Interval.dist 我们其实做的是 distance的中间点 `(y - x) / 2`
+- 这里的dist是 `距离两边的距离` 而不是 x, y 之间的距离. 这里要特别注意.
+
+#### TreeSet
+- https://leetcode.com/problems/exam-room/discuss/139885/Java-Solution-based-on-treeset/153588
+
+#### Map
+- TODO, not sure.
+
+
+
+---
+
 
 
 
  
  
  
-## Heap (13)
+## Heap (14)
 **0. [Heapify.java](https://github.com/awangdev/LintCode/blob/master/Java/Heapify.java)**      Level: Review      Tags: [Heap]
       
 
@@ -11055,6 +11234,25 @@ HashHeap?
 - 再priorityQueue, (mLog(m)), m是unique 数字的总量
 - 最终find top k, O(k)
 - Overall time: O(n) + O(mLogm) + O(k) => O(n), if m is small enough
+
+
+
+---
+
+**13. [Rearrange String k Distance Apart.java](https://github.com/awangdev/LintCode/blob/master/Java/Rearrange%20String%20k%20Distance%20Apart.java)**      Level: Hard      Tags: [Greedy, Hash Table, Heap]
+      
+
+给一个string, 全是lowercase letter, 要求重新排列: 然后每个unique的character要有k distance apart.
+
+跟Task Scheduler有点像, 只不过Task那道题里面还可以用其他方法求count, 这道题要求出排列结果
+
+#### PriorityQueue + HashTable
+- PriorityQueue排序+分布排列的一个经典用法.
+- Count frequency and store in pq.
+- Consume element of pq for k rounds, each time pick one element from queue.
+- Exception: if k still has content but queue is consumed: cannot complete valid string, return "";
+- space, O(n) extra space in sb, O(26) constant space with pq.
+- time: O(n) to add all items
 
 
 
@@ -11891,32 +12089,32 @@ O(n), one pace, no extra space
 
 ---
 
-**9. [Linked List Cycle II.java](https://github.com/awangdev/LintCode/blob/master/Java/Linked%20List%20Cycle%20II.java)**      Level: Medium      Tags: [Linked List, Two Pointers]
+**9. [Linked List Cycle II.java](https://github.com/awangdev/LintCode/blob/master/Java/Linked%20List%20Cycle%20II.java)**      Level: Medium      Tags: [Linked List, Math, Two Pointers]
       
 
-方法1:
-快慢指针, O(1)space.
+LinkedList 里面有 cycle, 找到cycle的起始点(第一个重复出现的element).
 
-确认有cycle后, 其实是数学问题:
-当head == slow.next时候， head就是cycle starting point.
-也就是说，当slow 移动到了那个回溯点，slow.next那个点就刚好是head的那个点...
+#### Slow, fast Pointer
+- 快慢指针, O(1)space.
+- 1. 确认有cycle后 2. 数学问题:找到开头.
+- 当head == slow.next时候， head就是cycle starting point.
+- 也就是说，当slow 移动到了那个回溯点，slow.next那个点就刚好是head的那个点...
 
-证明:
-1. 假设慢指针走t步, 快指针走快一倍, 也就是2t.
-2. 我们假设cycle的长度是Y, 而进入cycle之前的长度为X.
-3. 假设慢指针走了m圈cycle, 而快指针走了n圈cycle之后, 两个pointer相遇.
-4. 最终在Y cycle里面的K点相遇, 也就是两个指针都在这最后一圈里面走了K 步.
-=> 
-那么:
-t = X + mY + K
-2t = X + nY + K
-整合公式:
-X + K = (n - 2m)Y
-这里的m和n不过是整数的跑圈数, 也就是说X和K加在一起, 总归是结束cycle. X 和 K 互补
-=> 结论: 当slow/fast 指针在K点相遇后, 再走X步, 就到了cycle的起点, 也就是题目要求的起点.
+#### 证明
+- 1. 假设慢指针走t步, 快指针走快一倍, 也就是2t.
+- 2. 我们假设cycle的长度是Y, 而进入cycle之前的长度为X.
+- 3. 假设慢指针走了m圈cycle, 而快指针走了n圈cycle之后, 两个pointer相遇.
+- 4. 最终在Y cycle里面的K点相遇, 也就是两个指针都在这最后一圈里面走了K 步.
+- 那么:
+- t = X + mY + K
+- 2t = X + nY + K
+- 整合公式: X + K = (n - 2m)Y
+- 这里的m和n不过是整数的跑圈数, 也就是说X和K加在一起, 总归是结束cycle. X 和 K 互补
+- 结论: 当slow/fast 指针在K点相遇后, 再走X步, 就到了cycle的起点, 也就是题目要求的起点.
 
-方法2:
-HashMap, O(n) space
+#### Hash Table, O(n) space
+
+
 
 
 ---
@@ -13055,7 +13253,7 @@ count这个graph里面有多少个独立的component.
  
  
 ## Sweep Line (5)
-**0. [Meeting Rooms.java](https://github.com/awangdev/LintCode/blob/master/Java/Meeting%20Rooms.java)**      Level: Easy      Tags: [Sort, Sweep Line]
+**0. [Meeting Rooms.java](https://github.com/awangdev/LintCode/blob/master/Java/Meeting%20Rooms.java)**      Level: Easy      Tags: [PriorityQueue, Sort, Sweep Line]
       
 
 - 注意接头点要考虑所有开会结会的情况，不要恰巧漏掉相接的点
@@ -13070,11 +13268,9 @@ count这个graph里面有多少个独立的component.
 
 
 
-
-
 ---
 
-**1. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, Sort, Sweep Line]
+**1. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, PriorityQueue, Sort, Sweep Line]
       
 
 #### Sweep Line
@@ -13173,7 +13369,7 @@ HashHeap?
  
  
 ## Interval (1)
-**0. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, Sort, Sweep Line]
+**0. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, PriorityQueue, Sort, Sweep Line]
       
 
 #### Sweep Line
@@ -14038,32 +14234,32 @@ O(n), one pace, no extra space
 
 ---
 
-**15. [Linked List Cycle II.java](https://github.com/awangdev/LintCode/blob/master/Java/Linked%20List%20Cycle%20II.java)**      Level: Medium      Tags: [Linked List, Two Pointers]
+**15. [Linked List Cycle II.java](https://github.com/awangdev/LintCode/blob/master/Java/Linked%20List%20Cycle%20II.java)**      Level: Medium      Tags: [Linked List, Math, Two Pointers]
       
 
-方法1:
-快慢指针, O(1)space.
+LinkedList 里面有 cycle, 找到cycle的起始点(第一个重复出现的element).
 
-确认有cycle后, 其实是数学问题:
-当head == slow.next时候， head就是cycle starting point.
-也就是说，当slow 移动到了那个回溯点，slow.next那个点就刚好是head的那个点...
+#### Slow, fast Pointer
+- 快慢指针, O(1)space.
+- 1. 确认有cycle后 2. 数学问题:找到开头.
+- 当head == slow.next时候， head就是cycle starting point.
+- 也就是说，当slow 移动到了那个回溯点，slow.next那个点就刚好是head的那个点...
 
-证明:
-1. 假设慢指针走t步, 快指针走快一倍, 也就是2t.
-2. 我们假设cycle的长度是Y, 而进入cycle之前的长度为X.
-3. 假设慢指针走了m圈cycle, 而快指针走了n圈cycle之后, 两个pointer相遇.
-4. 最终在Y cycle里面的K点相遇, 也就是两个指针都在这最后一圈里面走了K 步.
-=> 
-那么:
-t = X + mY + K
-2t = X + nY + K
-整合公式:
-X + K = (n - 2m)Y
-这里的m和n不过是整数的跑圈数, 也就是说X和K加在一起, 总归是结束cycle. X 和 K 互补
-=> 结论: 当slow/fast 指针在K点相遇后, 再走X步, 就到了cycle的起点, 也就是题目要求的起点.
+#### 证明
+- 1. 假设慢指针走t步, 快指针走快一倍, 也就是2t.
+- 2. 我们假设cycle的长度是Y, 而进入cycle之前的长度为X.
+- 3. 假设慢指针走了m圈cycle, 而快指针走了n圈cycle之后, 两个pointer相遇.
+- 4. 最终在Y cycle里面的K点相遇, 也就是两个指针都在这最后一圈里面走了K 步.
+- 那么:
+- t = X + mY + K
+- 2t = X + nY + K
+- 整合公式: X + K = (n - 2m)Y
+- 这里的m和n不过是整数的跑圈数, 也就是说X和K加在一起, 总归是结束cycle. X 和 K 互补
+- 结论: 当slow/fast 指针在K点相遇后, 再走X步, 就到了cycle的起点, 也就是题目要求的起点.
 
-方法2:
-HashMap, O(n) space
+#### Hash Table, O(n) space
+
+
 
 
 ---
@@ -15977,7 +16173,7 @@ TODO:
  
  
  
-## Greedy (12)
+## Greedy (14)
 **0. [Majority Number II.java](https://github.com/awangdev/LintCode/blob/master/Java/Majority%20Number%20II.java)**      Level: Medium      Tags: [Enumeration, Greedy]
       
 
@@ -16244,6 +16440,54 @@ array的结尾地方, 再下一个点是开头, 形成一个circle route.
 
 ---
 
+**12. [Task Scheduler.java](https://github.com/awangdev/LintCode/blob/master/Java/Task%20Scheduler.java)**      Level: Medium      Tags: [Array, Enumeration, Greedy, PriorityQueue, Queue]
+      
+
+#### Array, count frequency, enumerate
+- Enumerate to understand: 1. we can module the tasks in module/section; 2. Only need sum the intervals/slots, not return actual layout
+- Perfect condition, all letters appear identical # times: just line them up separate in order.
+- Real case: task appears different times
+- 1. Place maxCount task as header followed with n slots: define (maxCount-1) sections
+- 2. For tasks with less # than maxCount# can fill the (maxCount-1) sections; what about the tail section?
+- 3. Any task with same maxTask#, of if prior sections all filled, will fill the tail section
+- To count overall slots/intervals, come up with this equation:
+- 1. Fixed sections: `(maxCount - 1) * (n + 1)`
+- 2. Plus all repeating maxCount tasks: calculate by couting identical maxCount of them
+- 3. Exception: if the first (max - 1) sections are all filled completely, and we still have extra task (ex: when n is not large enough), then just return tasks.length
+- time O(1), space O(1)
+
+#### PriorityQueue
+- 正面去做: 
+- summerize 每个task出现的次数, 然后qp sort Task object, count 大的靠前
+- 起始每个section: k slots = n + 1
+- 目标是穷尽 k, 或者 穷尽 pq (poll k times, but will save it back to queue if Task # > 0)
+- 如果qp 真的穷尽, break, return count
+- 不然, count + remain of k
+- extra space O(x), time O(n) + constant time O(xlogx), where x = 26
+
+
+
+---
+
+**13. [Rearrange String k Distance Apart.java](https://github.com/awangdev/LintCode/blob/master/Java/Rearrange%20String%20k%20Distance%20Apart.java)**      Level: Hard      Tags: [Greedy, Hash Table, Heap]
+      
+
+给一个string, 全是lowercase letter, 要求重新排列: 然后每个unique的character要有k distance apart.
+
+跟Task Scheduler有点像, 只不过Task那道题里面还可以用其他方法求count, 这道题要求出排列结果
+
+#### PriorityQueue + HashTable
+- PriorityQueue排序+分布排列的一个经典用法.
+- Count frequency and store in pq.
+- Consume element of pq for k rounds, each time pick one element from queue.
+- Exception: if k still has content but queue is consumed: cannot complete valid string, return "";
+- space, O(n) extra space in sb, O(26) constant space with pq.
+- time: O(n) to add all items
+
+
+
+---
+
 
 
 
@@ -16327,7 +16571,7 @@ array的结尾地方, 再下一个点是开头, 形成一个circle route.
  
  
  
-## Queue (1)
+## Queue (2)
 **0. [Max Sum of Rectangle No Larger Than K.java](https://github.com/awangdev/LintCode/blob/master/Java/Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K.java)**      Level: Hard      Tags: [Array, BST, Binary Search, DP, Queue, TreeSet]
       
 
@@ -16348,6 +16592,35 @@ array的结尾地方, 再下一个点是开头, 形成一个circle route.
 - 从最基本的O(m^2*n^2) 考虑: 遍历 startingRow/startingCol
 - rectangle? layer by layer? 可以想到Presum的思想, 大于需要的sum的时候, 减掉多余的部分
 - 如何找到多余的area? 那么就是search: 把需要search的内容存起来, 可以想到用BST(TreeSet), 或者自己写Binary Search.
+
+
+
+---
+
+**1. [Task Scheduler.java](https://github.com/awangdev/LintCode/blob/master/Java/Task%20Scheduler.java)**      Level: Medium      Tags: [Array, Enumeration, Greedy, PriorityQueue, Queue]
+      
+
+#### Array, count frequency, enumerate
+- Enumerate to understand: 1. we can module the tasks in module/section; 2. Only need sum the intervals/slots, not return actual layout
+- Perfect condition, all letters appear identical # times: just line them up separate in order.
+- Real case: task appears different times
+- 1. Place maxCount task as header followed with n slots: define (maxCount-1) sections
+- 2. For tasks with less # than maxCount# can fill the (maxCount-1) sections; what about the tail section?
+- 3. Any task with same maxTask#, of if prior sections all filled, will fill the tail section
+- To count overall slots/intervals, come up with this equation:
+- 1. Fixed sections: `(maxCount - 1) * (n + 1)`
+- 2. Plus all repeating maxCount tasks: calculate by couting identical maxCount of them
+- 3. Exception: if the first (max - 1) sections are all filled completely, and we still have extra task (ex: when n is not large enough), then just return tasks.length
+- time O(1), space O(1)
+
+#### PriorityQueue
+- 正面去做: 
+- summerize 每个task出现的次数, 然后qp sort Task object, count 大的靠前
+- 起始每个section: k slots = n + 1
+- 目标是穷尽 k, 或者 穷尽 pq (poll k times, but will save it back to queue if Task # > 0)
+- 如果qp 真的穷尽, break, return count
+- 不然, count + remain of k
+- extra space O(x), time O(n) + constant time O(xlogx), where x = 26
 
 
 
@@ -16831,7 +17104,7 @@ Details 参见: https://github.com/awangdev/LintCode/blob/master/Java/Sort%20Col
  
  
  
-## Enumeration (4)
+## Enumeration (5)
 **0. [Majority Number II.java](https://github.com/awangdev/LintCode/blob/master/Java/Majority%20Number%20II.java)**      Level: Medium      Tags: [Enumeration, Greedy]
       
 
@@ -16884,6 +17157,35 @@ Details 参见: https://github.com/awangdev/LintCode/blob/master/Java/Sort%20Col
 - 用一个direction status 确定方向
 - 写一个compute direction function 改变方向 `(direction + 1) % 4`
 - `boolean[][] visited` 来track走过的地方
+
+
+
+---
+
+**4. [Task Scheduler.java](https://github.com/awangdev/LintCode/blob/master/Java/Task%20Scheduler.java)**      Level: Medium      Tags: [Array, Enumeration, Greedy, PriorityQueue, Queue]
+      
+
+#### Array, count frequency, enumerate
+- Enumerate to understand: 1. we can module the tasks in module/section; 2. Only need sum the intervals/slots, not return actual layout
+- Perfect condition, all letters appear identical # times: just line them up separate in order.
+- Real case: task appears different times
+- 1. Place maxCount task as header followed with n slots: define (maxCount-1) sections
+- 2. For tasks with less # than maxCount# can fill the (maxCount-1) sections; what about the tail section?
+- 3. Any task with same maxTask#, of if prior sections all filled, will fill the tail section
+- To count overall slots/intervals, come up with this equation:
+- 1. Fixed sections: `(maxCount - 1) * (n + 1)`
+- 2. Plus all repeating maxCount tasks: calculate by couting identical maxCount of them
+- 3. Exception: if the first (max - 1) sections are all filled completely, and we still have extra task (ex: when n is not large enough), then just return tasks.length
+- time O(1), space O(1)
+
+#### PriorityQueue
+- 正面去做: 
+- summerize 每个task出现的次数, 然后qp sort Task object, count 大的靠前
+- 起始每个section: k slots = n + 1
+- 目标是穷尽 k, 或者 穷尽 pq (poll k times, but will save it back to queue if Task # > 0)
+- 如果qp 真的穷尽, break, return count
+- 不然, count + remain of k
+- extra space O(x), time O(n) + constant time O(xlogx), where x = 26
 
 
 
@@ -17913,7 +18215,7 @@ TODO:
  
  
  
-## Array (94)
+## Array (95)
 **0. [Minimum Subarray.java](https://github.com/awangdev/LintCode/blob/master/Java/Minimum%20Subarray.java)**      Level: Easy      Tags: [Array, Greedy]
       
 
@@ -18537,7 +18839,7 @@ unlimited border? 可能需要分割board. 用大框分割, 每次换行的时�
 
 ---
 
-**40. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, Sort, Sweep Line]
+**40. [Number of Airplane in the sky.java](https://github.com/awangdev/LintCode/blob/master/Java/Number%20of%20Airplane%20in%20the%20sky.java)**      Level: Medium      Tags: [Array, Interval, PriorityQueue, Sort, Sweep Line]
       
 
 #### Sweep Line
@@ -19806,6 +20108,35 @@ TODO:
 
 #### Counting sort
 - TODO: count occurance and reassign array
+
+
+
+---
+
+**94. [Task Scheduler.java](https://github.com/awangdev/LintCode/blob/master/Java/Task%20Scheduler.java)**      Level: Medium      Tags: [Array, Enumeration, Greedy, PriorityQueue, Queue]
+      
+
+#### Array, count frequency, enumerate
+- Enumerate to understand: 1. we can module the tasks in module/section; 2. Only need sum the intervals/slots, not return actual layout
+- Perfect condition, all letters appear identical # times: just line them up separate in order.
+- Real case: task appears different times
+- 1. Place maxCount task as header followed with n slots: define (maxCount-1) sections
+- 2. For tasks with less # than maxCount# can fill the (maxCount-1) sections; what about the tail section?
+- 3. Any task with same maxTask#, of if prior sections all filled, will fill the tail section
+- To count overall slots/intervals, come up with this equation:
+- 1. Fixed sections: `(maxCount - 1) * (n + 1)`
+- 2. Plus all repeating maxCount tasks: calculate by couting identical maxCount of them
+- 3. Exception: if the first (max - 1) sections are all filled completely, and we still have extra task (ex: when n is not large enough), then just return tasks.length
+- time O(1), space O(1)
+
+#### PriorityQueue
+- 正面去做: 
+- summerize 每个task出现的次数, 然后qp sort Task object, count 大的靠前
+- 起始每个section: k slots = n + 1
+- 目标是穷尽 k, 或者 穷尽 pq (poll k times, but will save it back to queue if Task # > 0)
+- 如果qp 真的穷尽, break, return count
+- 不然, count + remain of k
+- extra space O(x), time O(n) + constant time O(xlogx), where x = 26
 
 
 
