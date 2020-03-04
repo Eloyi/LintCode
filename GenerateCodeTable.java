@@ -193,6 +193,7 @@ public class GenerateCodeTable {
         return outputContent;
     }
 
+    /* Generate the tags Table*/
     public String generateTagREADME(File[] listOfFiles) {
         String outputContent = generateTableOfContent("TagREADME.md") + "\n\n";
         String header = "| Squence | Problem       | Level  | Language  | Tags | Video Tutorial|\n" + 
@@ -211,10 +212,14 @@ public class GenerateCodeTable {
             }
         });
         // Build View
-        for (Map.Entry<String, List<TableRow>> entry : tagToRows.entrySet()) {
+        List<Map.Entry<String, List<TableRow>>> entries = new ArrayList<>(tagToRows.entrySet());
+        entries.sort(Comparator.comparing(entry -> -entry.getValue().size()));
+
+        for (Map.Entry<String, List<TableRow>> entry : entries) {
             StringBuffer sb = new StringBuffer(" \n \n \n## " + entry.getKey() + " (" + entry.getValue().size() + ")\n");
             sb.append(header);
             List<TableRow> entryTableRows = entry.getValue();
+            entryTableRows.sort(Comparator.comparing(row -> String.join(",", row.getTags())));
             for (int i = 0; i < entryTableRows.size(); i++) {
                 sb.append("|" + i + entryTableRows.get(i).getTableComposedLine());
             }

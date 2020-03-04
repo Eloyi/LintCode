@@ -32,6 +32,21 @@ Note:
 Assume we are dealing with an environment which could only hold integers within the 32-bit signed integer range.
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
  */
+class Solution {
+    public int reverse(int x) {
+        int result = 0;
+
+        while (x != 0) {
+            int tail = x % 10;
+            int newResult = result * 10 + tail;
+            if ((newResult - tail) / 10 != result) return 0; // check overflow. If newResult overflow, it won't resolve back to result
+            result = newResult;
+            x = x / 10;
+        }
+
+        return result;
+    }
+}
 
 /*
 Thoughts: reverse without extra O(n) space.
@@ -76,11 +91,11 @@ class Solution {
     public int reverse(int x) {
         long result = (long) x;
         char[] arr = (Math.abs(result) + "").toCharArray();
-        int arrLength = arr.length;
-        for (int i = 0; i < arrLength/2; i++) {
+        int n = arr.length;
+        for (int i = 0; i < n/2; i++) {
             char temp = arr[i];
-            arr[i] = arr[arrLength - i - 1];
-            arr[arrLength - i - 1] = temp;
+            arr[i] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
         }
         result = Long.parseLong(String.valueOf(arr)) * (x > 0 ? 1 : -1);
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
